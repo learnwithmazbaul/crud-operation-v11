@@ -29,7 +29,23 @@ class EmployeeController extends Controller
         flash()->success('Employee created successfully.');
         return redirect()->route('employee.index');
     }
-    public function EditPage() {
-        return view('pages.edit');
+    public function EditPage($id) {
+        $employee = Employee::where('id',$id)->first();
+        return view('pages.edit',['employee'=>$employee]);
+    }//end method
+    public function Update(Request $request,$id) {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:employees,email,'.$id,
+            'phone' => 'required'
+        ]);
+        Employee::where('id',$id)->update([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'phone' => $request->input('phone'),
+        ]);
+        flash()->success('Employee updated successfully.');
+        return redirect()->route('employee.index');
     }
+
 }

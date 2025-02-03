@@ -29,12 +29,12 @@
                     <tbody id="tableList">
         @foreach ($employees as $key=>$employee)
             <tr>
-                <td>{{ $key }}</td>
+                <td>{{ $key+1 }}</td>
                 <td>{{ $employee->name}}</td>
                 <td>{{ $employee->email}}</td>
                 <td>{{ $employee->phone}}</td>
                 <td>
-                    <a href="{{ route('employee.edit') }}" class="edit"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                    <a href="{{ route('employee.edit',$employee->id) }}" class="edit"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
                     <a href="#" class="delete" data-bs-toggle="modal" data-bs-target="#deleteEmployeeModal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                 </td>
             </tr>
