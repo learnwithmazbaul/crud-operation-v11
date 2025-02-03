@@ -9,7 +9,7 @@
     <!-- Bootstrap CSS -->
     <link href="{{ asset('assets/css/bootstrap@5.0.2_dist_css_bootstrap.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="{{ asset('assets/') }}css/style.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 
     <!-- DataTable -->
     <link rel="stylesheet" href="{{ asset('assets/css/dataTables.min.css') }}">

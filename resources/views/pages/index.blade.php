@@ -11,7 +11,7 @@
                             <h2>Manage <b>Employees</b></h2>
                         </div>
                         <div class="col-sm-6">
-                            <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addEmployeeModal"><i class="material-icons">&#xE147;</i> <span>Add New Employee</span></a>
+                            <a href="{{ route('employee.create') }}" class="btn btn-success"><i class="material-icons">&#xE147;</i> <span>Add New Employee</span></a>
                         </div>
                     </div>
                 </div>
@@ -27,66 +27,18 @@
                         </tr>
                     </thead>
                     <tbody id="tableList">
-                        <tr>
-                            <td>1</td>
-                            <td>Mazbaul</td>
-                            <td>mazbaul011@gmail.com</td>
-                            <td>01765132423</td>
-                            <td>
-                                <a href="" class="edit" data-bs-toggle="modal" data-bs-target="#editEmployeeModal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                <a href="#" class="delete" data-bs-toggle="modal" data-bs-target="#deleteEmployeeModal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Jibon</td>
-                            <td>jibon@gmail.com</td>
-                            <td>01971621355</td>
-                            <td>
-                                <a href="" class="edit" data-bs-toggle="modal" data-bs-target="#editEmployeeModal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                <a href="#" class="delete" data-bs-toggle="modal" data-bs-target="#deleteEmployeeModal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Mamun</td>
-                            <td>mamun@gmail.com</td>
-                            <td>01971621352</td>
-                            <td>
-                                <a href="" class="edit" data-bs-toggle="modal" data-bs-target="#editEmployeeModal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                <a href="#" class="delete" data-bs-toggle="modal" data-bs-target="#deleteEmployeeModal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Mamun</td>
-                            <td>mamun@gmail.com</td>
-                            <td>01971621352</td>
-                            <td>
-                                <a href="" class="edit" data-bs-toggle="modal" data-bs-target="#editEmployeeModal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                <a href="#" class="delete" data-bs-toggle="modal" data-bs-target="#deleteEmployeeModal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>Mamun</td>
-                            <td>mamun@gmail.com</td>
-                            <td>01971621352</td>
-                            <td>
-                                <a href="" class="edit" data-bs-toggle="modal" data-bs-target="#editEmployeeModal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                <a href="#" class="delete" data-bs-toggle="modal" data-bs-target="#deleteEmployeeModal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td>Mamun</td>
-                            <td>mamun@gmail.com</td>
-                            <td>01971621352</td>
-                            <td>
-                                <a href="" class="edit" data-bs-toggle="modal" data-bs-target="#editEmployeeModal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                <a href="#" class="delete" data-bs-toggle="modal" data-bs-target="#deleteEmployeeModal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                            </td>
-                        </tr>
+        @foreach ($employees as $key=>$employee)
+            <tr>
+                <td>{{ $key }}</td>
+                <td>{{ $employee->name}}</td>
+                <td>{{ $employee->email}}</td>
+                <td>{{ $employee->phone}}</td>
+                <td>
+                    <a href="{{ route('employee.edit') }}" class="edit"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                    <a href="#" class="delete" data-bs-toggle="modal" data-bs-target="#deleteEmployeeModal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                </td>
+            </tr>
+        @endforeach
                     </tbody>
                 </table>
             </div>

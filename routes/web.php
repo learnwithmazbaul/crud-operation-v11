@@ -8,7 +8,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/employee',[EmployeeController::class,'index']);
-Route::get('/create',[EmployeeController::class,'createPage']);
-Route::get('/edit',[EmployeeController::class,'EditPage']);
+Route::get('/employee',[EmployeeController::class,'index'])->name('employee.index');
+Route::get('/create',[EmployeeController::class,'createPage'])->name('employee.create');
+Route::post('/employee',[EmployeeController::class,'Store'])->name('employee.store');
+Route::get('/edit',[EmployeeController::class,'EditPage'])->name('employee.edit');
 
