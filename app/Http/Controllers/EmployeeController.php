@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class EmployeeController extends Controller
 {
     public function index() {
-        $employees = Employee::all();
+        $employees = Employee::latest()->get();
         return view('pages.index',compact('employees'));
     }
     public function createPage() {
@@ -45,6 +45,12 @@ class EmployeeController extends Controller
             'phone' => $request->input('phone'),
         ]);
         flash()->success('Employee updated successfully.');
+        return redirect()->route('employee.index');
+    }//end method
+
+    public function Delete($id){
+        Employee::where('id',$id)->delete();
+        sweetalert()->success('Employee deleted successfully.');
         return redirect()->route('employee.index');
     }
 
